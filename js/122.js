@@ -70,6 +70,22 @@ const maxProfit = function (prices) {
     return acc
 }
 
-console.log(maxProfit([ 7, 1, 5, 3, 6, 4 ])) // 7
-console.log(maxProfit([ 1, 2, 3, 4, 5 ])) // 4
-console.log(maxProfit([ 7, 6, 4, 3, 1 ])) // 0
+// console.log(maxProfit([ 7, 1, 5, 3, 6, 4 ])) // 7
+// console.log(maxProfit([ 1, 2, 3, 4, 5 ])) // 4
+// console.log(maxProfit([ 7, 6, 4, 3, 1 ])) // 0
+
+const maxProfitQuick = function (prices) {
+    let agg = 0
+    for(let i = 1; i < prices.length; i++) {
+        if(prices[i - 1] < prices[i]) {
+            agg += prices[i] - prices[i - 1]
+        }
+    }
+
+    return agg
+}
+
+
+// console.log(maxProfitQuick([ 7, 1, 5, 3, 6, 4 ])) // 7
+// console.log(maxProfitQuick([ 1, 2, 3, 4, 5 ])) // 4
+// console.log(maxProfitQuick([ 7, 6, 4, 3, 1 ])) // 0
