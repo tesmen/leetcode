@@ -36,18 +36,22 @@
 
 const maxProfit = function (prices) {
     // console.log({ prices })
-    let minCandidate = prices[0]
+    if(prices.length === 1) {
+        return 0
+    }
+
+    let min = prices[0]
     let max = 0
 
     for(let i = 1; i < prices.length; i++) {
-        const sum = prices[i] - minCandidate
-        // console.log({ i, price: prices[i], minCandidate, sum, max })
+        const sum = prices[i] - min
+        // console.log({ i, price: prices[i], min, sum, max })
         if(sum > max) {
             max = sum
         }
 
-        if(prices[i] < minCandidate) {
-            minCandidate = prices[i]
+        if(prices[i] < min) {
+            min = prices[i]
         }
     }
 
