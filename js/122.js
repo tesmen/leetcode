@@ -53,7 +53,7 @@ const maxProfit = function (prices) {
         // console.log({ i, price: prices[i], min, sum, max, acc })
         if(sum > max) {
             max = sum
-        } else if(sum < max) {
+        } else {
             acc += max
             max = 0
             min = prices[i]
