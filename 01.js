@@ -1,3 +1,3 @@
-let a = [1,2,3]
-delete a[1]
-console.log(a)
+// console.log(Math.round(7 / -3))
+console.log(Math.round(0.5))
+console.log(Math.round(2.5))
