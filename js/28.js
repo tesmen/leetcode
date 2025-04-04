@@ -57,8 +57,50 @@ var strStr = function (haystack, needle) {
     return -1
 }
 
-console.log(strStr('leetcode', 'leeto')) // -1
-console.log(strStr('sadbutsad', 'sad')) // 0
-console.log(strStr('sadbutsad', 'foo')) // -1
-console.log(strStr('thisiselephantelephant', 'elephant')) // 6
-console.log(strStr('mississippi', 'issip')) // 4
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr2 = function (haystack, needle) {
+    for(let i = 0; i <= haystack.length - needle.length; i++) {
+        if(haystack[i] === needle[0]) {
+            for(let j = 0; j < needle.length; j++) {
+                if(haystack[i + j] !== needle[j]) {
+                    break
+                } else if(j === needle.length - 1) {
+                    return i
+                }
+            }
+        }
+    }
+
+    return -1
+}
+
+console.log(strStr2('a', 'a')) // 0
+console.log(strStr2('leetcode', 'leeto')) // -1
+console.log(strStr2('sadbutsad', 'sad')) // 0
+console.log(strStr2('sadbutsad', 'foo')) // -1
+console.log(strStr2('thisiselephantelephant', 'elephant')) // 6
+console.log(strStr2('mississippi', 'issip')) // 4
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStrQuick = function (haystack, needle) {
+
+    if(needle === '') {
+        return 0
+    }
+
+    for(let i = 0; i <= haystack.length - needle.length; i++) {
+        if(haystack.slice(i, i + needle.length) === needle) {
+            return i
+        }
+    }
+
+    return -1
+}
