@@ -115,3 +115,37 @@ function arrayToNodesList(arr) {
 
 console.log(rotateRight(arrayToNodesList([ 1, 2, 3, 4, 5 ]), 2000002)) // [4,5,1,2,3]
 // console.log(arrayToNodesList([ 1, 2, 3, 4, 5 ]))
+
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var rotateRightQuick = function (head, k) {
+    if(!head) {
+        return head
+    }
+
+    let size = 0
+    let current = head
+    let prev
+    while(current) {
+        size++
+        prev = current
+        current = current.next
+    }
+    k %= size
+    current = head
+    prev.next = head
+
+    let shifts = (size - k) % size
+
+    while(shifts) {
+        shifts--
+        prev = current
+        current = current.next
+    }
+    prev.next = null
+
+    return current
+}
