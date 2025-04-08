@@ -1,4 +1,16 @@
 <?php
-print round(0.5);
-print round(2.5);
+$x = 5;
+
+echo $x;
+echo PHP_EOL;
+
+echo($x);
+echo PHP_EOL;
+
+echo $x;
+echo PHP_EOL;
+
+echo $x;
+echo PHP_EOL;
+
 ?>
