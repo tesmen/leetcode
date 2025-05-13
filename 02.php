@@ -1,16 +1,28 @@
 <?php
-$x = 5;
+declare(strict_types=1);
 
-echo $x;
-echo PHP_EOL;
+$greet = function (int $x): int {
+    return $x * $x;
+};
 
-echo($x);
-echo PHP_EOL;
+class Foo
+{
+    static function math2(int $x)
+    {
+        return $x * $x;
+    }
 
-echo $x;
-echo PHP_EOL;
+    public function doStuff(callable $cb)
+    {
+        return $cb(2);
+    }
+}
 
-echo $x;
-echo PHP_EOL;
+$instance = new Foo();
+echo $instance->doStuff($greet);
+echo $instance->doStuff(['Foo', 'math2']);
+
+//echo math(2)
 
 ?>
+
